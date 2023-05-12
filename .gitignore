@@ -1,0 +1,6 @@
+/node_modules
+/dist
+/dotenv/.env
+/.cache
+/.config
+/.package-lock.json
