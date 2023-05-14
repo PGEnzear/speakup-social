@@ -27,8 +27,7 @@ class SelectelStorage {
   async login(user, password) {
     this.#user = user
     this.#password = password
-
-		await this.#auth()
+    await this.#auth()
   }
 
   #isAuth() {

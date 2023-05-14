@@ -1,14 +1,12 @@
-import moduleAlias from "module-alias";
+import "module-alias/register.js";
+import Application from "./main.js";
 
-moduleAlias.addAlias("@",__dirname);
-moduleAlias()
-
-import Application from "@/main";
+const app = new Application();
 
 async function bootstrap() {
-  await Application.init()
+  await app.init()
 
-  await Application.start()
+  await app.start()
 
   console.log("[Application] started")
 }

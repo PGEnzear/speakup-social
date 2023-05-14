@@ -26,11 +26,6 @@ class QrCodeGenerator {
         break;
       }
 
-      case "string": {
-        return imageString
-        break;
-      }
-
       default: {
         return imageString
       }

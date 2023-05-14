@@ -28,11 +28,13 @@ class Application {
   passport;
 
   async init() {
+    dotenv.config()
+    dotenv.config({ path:  '../dotenv/.env' })
+    console.log(process.env.PORT)
+
     PassportModule.init();
     this.passport = PassportModule.passport;
-    
-    dotenv.config()
-    dotenv.config({ path:  '.env' })
+
     //PreInit
     try {
       DatabaseConnector.createConnection(
@@ -58,9 +60,9 @@ class Application {
       applicationData.passport = this.passport
       console.log(applicationData)
       Router.init()
-			app.use(Router.router)
+      app.use(Router.router)
       //S3
-			s3client.login(process.env.S3_USERNAME, process.env.S3_PASSWORD)
+      await s3client.login(process.env.S3_USERNAME, process.env.S3_PASSWORD)
       //WebSocket
       WebSocketServer.setPort(this.WS_PORT)
       //Database
@@ -101,5 +103,4 @@ class Application {
   
 }
 
-let arg = new Application()
-export default arg;
+export default Application;

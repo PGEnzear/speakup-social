@@ -8,7 +8,7 @@ import session from "express-session"
 import fileUpload from 'express-fileupload'
 import cookieParser from "cookie-parser"
 
-import requestIp from '../../utils/request-ip.js'
+import requestIp from '../utils/request-ip.js'
 import errorHandler from "../utils/errorHandler.js"
 
 import applicationData from "./applicationData.js"
@@ -21,8 +21,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const options = {
-  key: fs.readFileSync(__dirname + '/ssl/private.key', 'utf8'),
-  cert: fs.readFileSync(__dirname + '/ssl/public.cert', 'utf8')
+  key: fs.readFileSync(path.join(__dirname, '../ssl/private.key'), 'utf8'),
+  cert: fs.readFileSync(path.join(__dirname, '../ssl/public.cert'), 'utf8')
 };
 
 const app = express()
